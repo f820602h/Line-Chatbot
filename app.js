@@ -8,7 +8,10 @@ var bot = linebot({
 
 // 當有人傳送訊息給Bot時
 bot.on('message', function (event) {
-  event.reply(event.message.text).then(function (data) {
+  let splitString = event.message.text.split("")
+  let reverseArray = splitString.reverse()
+  let joinArray = reverseArray.join("")
+  event.reply(joinArray).then(function (data) {
     console.log(event.message.text)
   }).catch(function (error) {
     console.log(error)
